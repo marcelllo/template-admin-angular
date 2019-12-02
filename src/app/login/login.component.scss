@@ -1,0 +1,18 @@
+.login {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #004d40;
+
+  .col-6 {
+    padding: 40px 20px;
+    border-right: 4px dotted #fff;
+  }
+
+  .btn-primary {
+      color: #004d40;
+      border-color: #004d40;
+      background-color: #b2dfdb
+  }
+}
