@@ -1,3 +1,4 @@
+import { LayoutService } from './../shared/layout/layout.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as Highcharts from 'highcharts';
@@ -18,7 +19,6 @@ noData(Highcharts);
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  grafico: any;
   public options: any = {
     chart: {
       type: 'column',
@@ -31,8 +31,8 @@ export class DashboardComponent implements OnInit {
       enabled: false
     },
     tooltip: {
-      formatter: function () {
-        return this.series.name + ': ' + this.y.toFixed(2);
+      formatter() {
+        return this.series.name + ': ' + Highcharts.numberFormat(this.y, 2, ',', '.');
       }
     },
     xAxis: {
@@ -44,45 +44,18 @@ export class DashboardComponent implements OnInit {
     }, {
       name: 'Saúde',
       data: [1800]
-    }],
-
-    responsive: {
-      rules: [{
-          condition: {
-              maxWidth: 1980
-          },
-          chartOptions: {
-              legend: {
-                  align: 'center',
-                  verticalAlign: 'bottom',
-                  layout: 'horizontal'
-              },
-              yAxis: {
-                  labels: {
-                      align: 'left',
-                      x: 0,
-                      y: -5
-                  },
-                  title: {
-                      text: null
-                  }
-              },
-              subtitle: {
-                  text: null
-              },
-              credits: {
-                  enabled: false
-              }
-          }
-      }]
-  }
+    }]
   };
 
-  constructor() { }
+  constructor(private layoutService: LayoutService) { }
 
   ngOnInit() {
-    setTimeout(() => this.grafico = Highcharts.chart('container', this.options), 200);
-    setTimeout(() => this.grafico.setSize(null), 200);
+    this.carregarGrafico();
+    this.layoutService.menuMudou.subscribe(mudou => (mudou ? this.carregarGrafico() : null));
+  }
+
+  carregarGrafico() {
+    setTimeout(() => Highcharts.chart('container', this.options), 200);
   }
 
 }
