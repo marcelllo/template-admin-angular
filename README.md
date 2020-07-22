@@ -1,6 +1,6 @@
 # Template Admin Angular 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+This project was a basic template for a dashboard with navigation and hightcharts integration.
 
 ## Development server
 
