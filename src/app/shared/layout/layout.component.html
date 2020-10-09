@@ -1,28 +1,36 @@
 <div id="layout">
-        <aside class="menu" 
-          [style.width]="largura + 'px'"
-          [style.left]="exibir ? '0' : '-'+ largura + 'px'">
-          <header>Gestão Financeira</header>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" 
-              *ngFor="let menu of itensMenu"
-              [class.active]="menuSelecionado(menu.link)">
-              {{menu.texto}}
-            </a>
-          </div>
-        </aside>
+  <aside
+    class="menu"
+    [style.width]="largura + 'px'"
+    [style.left]="exibir ? '0' : '-' + largura + 'px'"
+  >
+    <header>Gestão Financeira</header>
+    <div class="list-group">
+      <a
+        href="#"
+        class="list-group-item list-group-item-action"
+        *ngFor="let menu of itensMenu"
+        [class.active]="menuSelecionado(menu.link)"
+      >
+        {{ menu.texto }}
+      </a>
+    </div>
+  </aside>
 
-        <section class="conteudo" 
-          [style.left]="exibir ? largura + 'px' : '0'"
-          [style.width]="exibir ? 'calc(100% - ' + largura + 'px)' : '100%'">
-          
-          <header class="d-flex justify-content-between">
-            <a href="javascript:;" (click)="showHideMenu()"><i class="fa fa-bars"></i></a>
-            <a routerLink="/login"><i class="fa fa-power-off"></i></a>
-          </header>
+  <section
+    class="conteudo"
+    [style.left]="exibir ? largura + 'px' : '0'"
+    [style.width]="exibir ? 'calc(100% - ' + largura + 'px)' : '100%'"
+  >
+    <header class="d-flex justify-content-between">
+      <a href="javascript:;" (click)="showHideMenu()"
+        ><i class="fa fa-bars"></i
+      ></a>
+      <a routerLink="/login"><i class="fa fa-power-off"></i></a>
+    </header>
 
-          <div class="conteudo">
-            <router-outlet></router-outlet>
-          </div>
-        </section>
-      </div>
+    <div class="conteudo">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</div>
