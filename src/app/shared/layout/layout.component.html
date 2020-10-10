@@ -11,6 +11,7 @@
         class="list-group-item list-group-item-action"
         *ngFor="let menu of itensMenu"
         [class.active]="menuSelecionado(menu.link)"
+        [routerLink]="menu.link"
       >
         {{ menu.texto }}
       </a>
@@ -29,8 +30,8 @@
       <a routerLink="/login"><i class="fa fa-power-off"></i></a>
     </header>
 
-    <div class="conteudo">
+    <main class="conteudo">
       <router-outlet></router-outlet>
-    </div>
+    </main>
   </section>
 </div>

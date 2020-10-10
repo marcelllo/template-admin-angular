@@ -11,10 +11,10 @@ export class LayoutService {
       link: '/'
     }, {
       texto: 'Cartão de Crédito',
-      link: 'cartao-credito'
+      link: 'credit-cards'
     }, {
       texto: 'Lançamentos Mês',
-      link: 'lancamentos'
+      link: 'month-entries'
     }]);
   }
 }

@@ -1,5 +1,4 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import "~animate.css/animate.min";
 @import "~font-awesome/css/font-awesome.min.css";
 
 * {
@@ -24,5 +23,14 @@ html {
   .list-group-item {
       color: white;
       background: transparent;
+  }
+
+  table.table {
+    background-color: #fff;
+  }
+
+  h2 {
+    padding: 5px;
+    border-bottom: 1px solid black;
   }
 }
